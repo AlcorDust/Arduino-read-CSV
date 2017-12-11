@@ -1,0 +1,31 @@
+/* Lettura di float separati da virgola da seriale
+ *  La stringa deve essere così:
+ *     "float1,float2,float3\n"
+ *  I float devono usare il PUNTO come separatore decimale!!
+*/
+
+String inStringFloat_1 = "";
+String inStringFloat_2 = "";
+String inStringFloat_3 = "";
+
+float float_1, float_2, float_3;
+
+void setup() {
+  Serial.begin(9600);
+}
+
+void loop() {
+  if (Serial.available()) {
+    inStringFloat_1 = Serial.readStringUntil(',');
+    inStringFloat_2 = Serial.readStringUntil(',');
+    inStringFloat_3 = Serial.readStringUntil('\n');
+
+    float_1 = inStringFloat_1.toFloat();
+    float_2 = inStringFloat_2.toFloat();
+    float_3 = inStringFloat_3.toFloat();
+  
+    Serial.println(float_1);
+    Serial.println(float_2);
+    Serial.println(float_3);
+  }
+}
