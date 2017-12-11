@@ -1,0 +1,23 @@
+/* Lettura di stringhe separate da virgola da seriale
+ *  La stringa deve essere così:
+ *     "stringa1,stringa2,stringa3\n"
+ */
+String inString_1 = "";
+String inString_2 = "";
+String inString_3 = "";
+
+void setup() {
+  Serial.begin(9600);
+}
+
+void loop() {
+  if (Serial.available()) {
+    inString_1 = Serial.readStringUntil(',');
+    inString_2 = Serial.readStringUntil(',');
+    inString_3 = Serial.readStringUntil('\n');
+  
+    Serial.println(inString_1);
+    Serial.println(inString_2);
+    Serial.println(inString_3);
+  }
+}
