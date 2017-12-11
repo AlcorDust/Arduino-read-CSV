@@ -1,9 +1,10 @@
 /*
- * Lettura di una stringa da seriale
+ * Lettura di una stringa da seriale per estrapolare INTERI
  * 
  *  La stringa in arrivo deve essere così composta:
  *    
  *    "s,val_1,val_2,val_3,val_4" 
+ *    I val_# devono essere numeri interi!!!
  */
 
 byte val_1, val_2, val_3, val_4;
