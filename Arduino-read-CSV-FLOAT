@@ -4,10 +4,6 @@
  *  I float devono usare il PUNTO come separatore decimale!!
 */
 
-String inStringFloat_1 = "";
-String inStringFloat_2 = "";
-String inStringFloat_3 = "";
-
 float float_1, float_2, float_3;
 
 void setup() {
@@ -16,13 +12,9 @@ void setup() {
 
 void loop() {
   if (Serial.available()) {
-    inStringFloat_1 = Serial.readStringUntil(',');
-    inStringFloat_2 = Serial.readStringUntil(',');
-    inStringFloat_3 = Serial.readStringUntil('\n');
-
-    float_1 = inStringFloat_1.toFloat();
-    float_2 = inStringFloat_2.toFloat();
-    float_3 = inStringFloat_3.toFloat();
+    float_1 = Serial.readStringUntil(',').toFloat();
+    float_2 = Serial.readStringUntil(',').toFloat();
+    float_3 = Serial.readStringUntil('\n').toFloat();
   
     Serial.println(float_1);
     Serial.println(float_2);
