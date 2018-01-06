@@ -17,8 +17,10 @@ void loop() {
     umidita = 36.00;
     luce = 80.20;
 
-    snprintf (msg, 75, "%.2f,%.2f,%.2f", temperatura, umidita, luce);   // msg: buffer, 75: lunghezza buffer, "" stringa da scrivere,
-                                                                        // value: valori variabili nella stringa.
+    // Create string: start char A, end char Z.
+    // %.2f indicates a float variable with 2 decimal digits.
+    snprintf (msg, 75, "A,%.2f,%.2f,%.2f,Z", temperatura, umidita, luce);   // msg: buffer, 75: lunghezza buffer, "" stringa da scrivere,
+                                                                            // value: valori variabili nella stringa.
     Serial.print("Stringa creata: ");                   
     Serial.println(msg);
     
