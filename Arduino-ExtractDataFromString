@@ -1,6 +1,7 @@
 /*
-   Stringa da decomporre 
+   How to extract data from this string:
     "255,123,32"
+   ...and store the values inside variables.
 */
 
 String incomingMessage = "255,123,32";
