@@ -1,0 +1,53 @@
+/*
+   Stringa da decomporre 
+    "255,123,32"
+*/
+
+String incomingMessage = "255,123,32";
+
+byte r = 0;
+byte g = 0;
+byte b = 0;
+
+void setup() {
+  
+  Serial.begin(9600);
+  
+}
+
+void loop() {
+    
+    // Metodo 1 ------------------------------------------------------------------
+    byte comma_1 = incomingMessage.indexOf(',');
+    r = incomingMessage.substring(0, comma_1).toInt();
+    byte comma_2 = incomingMessage.indexOf(',', comma_1 + 1);
+    g = incomingMessage.substring(comma_1 + 1, comma_2 + 1).toInt();
+    b = incomingMessage.substring(comma_2 + 1, incomingMessage.length()).toInt();
+    
+    Serial.println("\nMetodo 1: ");
+    Serial.println(r);
+    Serial.println(g);
+    Serial.println(b);
+    //----------------------------------------------------------------------------
+
+    // Metodo 2 ------------------------------------------------------------------
+    char *tmp;
+    int i = 0;
+    tmp = strtok(&incomingMessage[0], ",");
+    while (tmp) {
+      colors[i++] = atoi(tmp);
+      tmp = strtok(NULL, ",");
+    }
+
+    r = colors[0];
+    g = colors[1];
+    b = colors[2];
+    
+    Serial.println("\nMetodo 2: ");
+    Serial.println(r);
+    Serial.println(g);
+    Serial.println(b);
+    //----------------------------------------------------------------------------
+
+    delay(5000);
+}
